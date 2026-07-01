@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예리하다✿ 체험 동행 모집</title>
+
+<!-- OG Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="예리하다✿ 체험 동행 모집">
+<meta property="og:description" content="예리하다와 함께하는 Lucky U! 동행 같이 GOGO 해요 🌸">
+<meta property="og:image" content="https://fascinating-muffin-e209ea.netlify.app/og-thumbnail.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://fascinating-muffin-e209ea.netlify.app">
+<meta property="og:site_name" content="예리하다 체험 동행">
+<meta property="og:locale" content="ko_KR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="예리하다✿ 체험 동행 모집">
+<meta name="twitter:description" content="예리하다와 함께하는 Lucky U! 동행 같이 GOGO 해요 🌸">
+<meta name="twitter:image" content="https://fascinating-muffin-e209ea.netlify.app/og-thumbnail.jpg">
+
+<!-- Kakao / general -->
+<meta name="description" content="예리하다와 함께하는 Lucky U! 동행 같이 GOGO 해요 🌸">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Gmarket+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #FF6B9D;
+  --pink-dark: #e8517f;
+  --pink-light: #fff0f5;
+  --pink-mid: #ffd6e7;
+  --pink-border: #ffc0d8;
+  --bg: #fff8fb;
+  --card: #ffffff;
+  --text: #2a1a22;
+  --muted: #9e7a8a;
+  --border: #f5d0e0;
+  --radius: 16px;
+  --green: #2DB400;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+header {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem; height: 58px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-family: 'Gmarket Sans', sans-serif; font-weight: 700; font-size: 18px; color: var(--text); letter-spacing: -0.5px; }
+.logo em { color: var(--pink); font-style: normal; }
+.logo-sub { font-size: 11px; color: var(--muted); margin-left: 6px; font-weight: 400; font-family: 'Noto Sans KR', sans-serif; }
+
+main { max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+/* Hero */
+.hero {
+  padding: 2.5rem 0 2rem;
+  text-align: center;
+}
+.hero-emoji { font-size: 36px; margin-bottom: 12px; }
+.hero-title { font-family: 'Gmarket Sans', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+.hero-title em { color: var(--pink); font-style: normal; }
+.hero-sub { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.hero-divider { width: 40px; height: 3px; background: linear-gradient(90deg, var(--pink), #ffb3d0); border-radius: 99px; margin: 1.2rem auto 0; }
+
+/* List */
+.list-header { display: flex; align-items: center; justify-content: space-between; margin: 1.5rem 0 0.8rem; }
+.list-title { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.list-title::before { content: '🌸'; font-size: 15px; }
+.list-count { font-size: 13px; color: var(--muted); background: var(--pink-light); padding: 3px 10px; border-radius: 99px; border: 1px solid var(--pink-border); }
+
+.campaign-grid { display: flex; flex-direction: column; gap: 12px; }
+
+/* Card */
+.campaign-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden; cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  display: flex; align-items: stretch;
+  box-shadow: 0 2px 8px rgba(255,107,157,0.06);
+}
+.campaign-card:hover { border-color: var(--pink); box-shadow: 0 4px 20px rgba(255,107,157,0.15); transform: translateY(-1px); }
+.campaign-card.closed-card { opacity: 0.5; pointer-events: none; }
+
+.campaign-card-img {
+  width: 90px; min-width: 90px;
+  background: linear-gradient(135deg, #fff0f5, #ffd6e7);
+  display: flex; align-items: center; justify-content: center; font-size: 30px;
+  border-right: 1.5px solid var(--border); overflow: hidden;
+}
+.campaign-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.campaign-card-body { flex: 1; padding: 13px 15px; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.campaign-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; }
+.campaign-card-name { font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.campaign-card-loc { font-size: 11px; color: var(--muted); white-space: nowrap; background: var(--pink-light); padding: 2px 7px; border-radius: 99px; }
+
+.card-schedules { display: flex; flex-direction: column; gap: 3px; }
+.card-schedule-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
+.card-schedule-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+.card-no-schedule { font-size: 12px; color: var(--muted); }
+
+.campaign-card-footer { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+.badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.badge-blog { background: var(--pink); color: #fff; }
+.badge-type { background: #f5edf2; color: #9e7a8a; }
+.badge-recruit { background: #e8f8e0; color: #1f8a00; }
+.badge-full { background: #fff0f0; color: #cc3333; }
+.badge-closed { background: #f0f0f0; color: #888; }
+.slot-mini { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+.empty-state { text-align: center; padding: 4rem 0; color: var(--muted); }
+.empty-state .e-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; line-height: 1.7; }
+.loading-indicator { text-align: center; padding: 3rem; color: var(--muted); font-size: 14px; }
+
+/* Detail page */
+.detail-page { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; overflow-y: auto; }
+.detail-page.show { display: block; }
+.detail-header {
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem; height: 56px; display: flex; align-items: center; gap: 12px;
+  position: sticky; top: 0; z-index: 10;
+}
+.btn-back { background: none; border: none; cursor: pointer; font-size: 22px; color: var(--text); display: flex; align-items: center; padding: 4px; transition: color 0.15s; }
+.btn-back:hover { color: var(--pink); }
+.detail-header-title { font-size: 16px; font-weight: 700; }
+.detail-content { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; display: flex; flex-direction: column; gap: 1rem; }
+
+.detail-card { background: var(--card); border-radius: var(--radius); border: 1.5px solid var(--border); overflow: hidden; box-shadow: 0 2px 12px rgba(255,107,157,0.06); }
+.detail-img { width: 100%; max-height: 220px; object-fit: cover; display: none; border-bottom: 1.5px solid var(--border); }
+.detail-img-placeholder { height: 120px; background: linear-gradient(135deg, #fff0f5, #ffd6e7); display: flex; align-items: center; justify-content: center; font-size: 44px; border-bottom: 1.5px solid var(--border); }
+.detail-body { padding: 1.25rem 1.5rem; }
+.detail-title { font-family: 'Gmarket Sans', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.detail-sub { font-size: 13px; color: var(--muted); margin-bottom: 1rem; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1rem; }
+.info-item { background: var(--pink-light); border-radius: 10px; padding: 10px 14px; border: 1px solid var(--pink-border); }
+.info-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.info-value { font-size: 13px; font-weight: 500; }
+
+.slot-header-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--muted); }
+.slot-bar { height: 8px; background: var(--pink-mid); border-radius: 99px; overflow: hidden; }
+.slot-fill { height: 100%; background: linear-gradient(90deg, var(--pink), #ff9ec4); border-radius: 99px; transition: width 0.4s; }
+
+.section-title { font-size: 14px; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; color: var(--text); }
+.section-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--pink); border-radius: 2px; }
+
+.schedule-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.schedule-chip { background: var(--pink-light); border: 1px solid var(--pink-border); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: var(--text); }
+
+/* Closed banner */
+.closed-banner { background: #f5f5f5; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 1.2rem; text-align: center; color: #888; font-size: 14px; line-height: 1.8; }
+.closed-banner strong { display: block; font-size: 16px; color: #555; margin-bottom: 4px; }
+
+/* Apply */
+.apply-card { background: var(--card); border-radius: var(--radius); border: 1.5px solid var(--border); box-shadow: 0 2px 12px rgba(255,107,157,0.06); }
+.apply-card-body { padding: 1.25rem 1.5rem; }
+.input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.input-name { width: 90px; flex-shrink: 0; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.input-msg { flex: 1; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.input-name:focus, .input-msg:focus { border-color: var(--pink); }
+
+.schedule-checkboxes { margin-bottom: 12px; }
+.schedule-check-title { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 6px; }
+.checkbox-label { display: flex; align-items: center; gap: 5px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 13px; cursor: pointer; transition: all 0.15s; user-select: none; }
+.checkbox-label.checked { background: var(--pink-light); border-color: var(--pink); color: var(--pink-dark); font-weight: 500; }
+
+.btn-apply { width: 100%; background: linear-gradient(135deg, var(--pink), #ff9ec4); color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.1s; box-shadow: 0 4px 14px rgba(255,107,157,0.3); }
+.btn-apply:hover { opacity: 0.9; }
+.btn-apply:active { transform: scale(0.99); }
+.btn-apply:disabled { background: #ddd; box-shadow: none; cursor: not-allowed; }
+
+/* Comments */
+.comment-list { display: flex; flex-direction: column; gap: 12px; min-height: 40px; }
+.comment-empty { text-align: center; padding: 1.5rem 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.comment-item { display: flex; gap: 10px; align-items: flex-start; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+.avatar { width: 36px; height: 36px; min-width: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; }
+.comment-content { flex: 1; background: var(--pink-light); border-radius: 0 12px 12px 12px; padding: 8px 12px; border: 1px solid var(--pink-border); }
+.comment-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+.comment-name { font-size: 13px; font-weight: 700; color: var(--pink-dark); }
+.comment-time { font-size: 11px; color: var(--muted); }
+.comment-text { font-size: 13px; color: #444; line-height: 1.6; }
+.comment-schedules { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.comment-schedule-tag { font-size: 11px; background: var(--pink-mid); color: var(--pink-dark); padding: 2px 8px; border-radius: 99px; font-weight: 500; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--text); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 14px; transition: transform 0.3s ease; z-index: 999; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+.toast.show { transform: translateX(-50%) translateY(0); }
+.btn-small-spin { display: inline-block; width: 14px; height: 14px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .input-row { flex-wrap: wrap; }
+  .input-name { width: 100%; }
+  .hero-title { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">예리하다<em>✿</em> <span class="logo-sub">블로그 체험 동행</span></div>
+</header>
+
+<main id="list-page">
+  <div class="hero">
+    <div class="hero-emoji">🌸</div>
+    <div class="hero-title">함께 떠나는 <em>체험 동행</em></div>
+    <div class="hero-sub">블로그 체험단 당첨 후<br>같이 방문할 동행자를 찾아요</div>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="list-header">
+    <span class="list-title">모집 중인 체험단</span>
+    <span class="list-count" id="list-count">0개</span>
+  </div>
+  <div class="campaign-grid" id="campaign-grid">
+    <div class="loading-indicator">🌸 불러오는 중...</div>
+  </div>
+</main>
+
+<!-- 상세 페이지 -->
+<div class="detail-page" id="detail-page">
+  <div class="detail-header">
+    <button class="btn-back" onclick="goBack()">←</button>
+    <span class="detail-header-title" id="detail-header-title"></span>
+  </div>
+  <div class="detail-content">
+    <div class="detail-card">
+      <div class="detail-img-placeholder" id="detail-img-placeholder">🏪</div>
+      <img class="detail-img" id="detail-img" alt="">
+      <div class="detail-body">
+        <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+          <span class="badge badge-blog">Blog</span>
+          <span class="badge badge-type" id="d-type">방문형</span>
+          <span class="badge badge-recruit" id="d-status">동행 모집중</span>
+        </div>
+        <div class="detail-title" id="d-name">-</div>
+        <div class="detail-sub" id="d-sub">-</div>
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">📍 위치</div><div class="info-value" id="d-location">-</div></div>
+          <div class="info-item"><div class="info-label">💰 체험 혜택</div><div class="info-value" id="d-benefit">-</div></div>
+          <div class="info-item"><div class="info-label">👥 모집 인원</div><div class="info-value" id="d-slots">-</div></div>
+          <div class="info-item"><div class="info-label">📋 유형</div><div class="info-value" id="d-type2">-</div></div>
+        </div>
+        <div>
+          <div class="slot-header-row"><span>모집 현황</span><strong id="d-slot-count" style="color:var(--pink)">-</strong></div>
+          <div class="slot-bar"><div class="slot-fill" id="d-slot-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-card" id="schedules-card">
+      <div class="detail-body">
+        <div class="section-title">가능한 일정</div>
+        <div class="schedule-chips" id="d-schedules"></div>
+      </div>
+    </div>
+    <!-- 신청 or 마감 배너 -->
+    <div id="apply-section">
+      <div class="apply-card">
+        <div class="apply-card-body">
+          <div class="section-title">동행 신청</div>
+          <div class="input-row">
+            <input class="input-name" type="text" id="app-name" placeholder="닉네임" maxlength="10">
+            <input class="input-msg" type="text" id="app-msg" placeholder="한마디 (예: 플레이스 저장 완료!)" maxlength="60">
+          </div>
+          <div class="schedule-checkboxes" id="app-schedule-wrap" style="display:none">
+            <div class="schedule-check-title">🌸 가능한 날짜를 선택해주세요</div>
+            <div class="checkbox-group" id="app-checkbox-group"></div>
+          </div>
+          <button class="btn-apply" id="app-btn" onclick="submitApplication()">동행 신청하기 🌸</button>
+        </div>
+      </div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-body">
+        <div class="section-title">신청자 <span id="app-count" style="font-size:12px;color:var(--muted);font-weight:400;margin-left:2px;">(0명)</span></div>
+        <div class="comment-list" id="app-list"><div class="comment-empty">아직 신청자가 없어요 🌸<br>첫 번째 동행자가 되어보세요!</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SB_URL = 'https://rtplipyzfoqxphsiuobw.supabase.co';
+const SB_KEY = 'sb_publishable_GWIsZZDnetcfldKHfKjcKQ_Q_q569Gl';
+const avatarColors = ['#FF6B9D','#e05c00','#8844cc','#0077cc','#cc3366','#009988'];
+let currentCampaign = null;
+
+function sbHeaders() {
+  return { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY };
+}
+
+// 날짜 지난 캠페인 자동 마감
+async function autoClosePastCampaigns() {
+  try {
+    const res = await fetch(SB_URL + '/rest/v1/campaigns?select=id,schedules,status&status=eq.active', { headers: sbHeaders() });
+    const list = await res.json();
+    if (!Array.isArray(list)) return;
+    const now = new Date(); now.setHours(0,0,0,0);
+    for (const c of list) {
+      let schedules = []; try { schedules = JSON.parse(c.schedules||'[]'); } catch(e) {}
+      if (!schedules.length) continue;
+      const allPast = schedules.every(s => {
+        const m = s.match(/(\d+)\/(\d+)/); if (!m) return false;
+        const d = new Date(new Date().getFullYear(), parseInt(m[1])-1, parseInt(m[2]));
+        return d < now;
+      });
+      if (allPast) {
+        await fetch(SB_URL + '/rest/v1/campaigns?id=eq.' + c.id, {
+          method: 'PATCH', headers: sbHeaders(), body: JSON.stringify({ status: 'closed' })
+        });
+      }
+    }
+  } catch(e) {}
+}
+
+// 수용인원 찬 캠페인 자동 마감
+async function autoCloseFullCampaigns(list, countMap) {
+  for (const c of list) {
+    if (c.status !== 'active') continue;
+    const cnt = countMap[c.id] || 0;
+    if (cnt >= c.max_slots) {
+      await fetch(SB_URL + '/rest/v1/campaigns?id=eq.' + c.id, {
+        method: 'PATCH', headers: sbHeaders(), body: JSON.stringify({ status: 'closed' })
+      });
+      c.status = 'closed';
+    }
+  }
+}
+
+async function loadCampaigns() {
+  await autoClosePastCampaigns();
+  try {
+    const [campRes, appRes] = await Promise.all([
+      fetch(SB_URL + '/rest/v1/campaigns?select=*&status=eq.active', { headers: sbHeaders() }),
+      fetch(SB_URL + '/rest/v1/applications?select=campaign_id', { headers: sbHeaders() })
+    ]);
+    const list = await campRes.json();
+    const apps = await appRes.json();
+    const countMap = {};
+    if (Array.isArray(apps)) apps.forEach(a => { countMap[a.campaign_id]=(countMap[a.campaign_id]||0)+1; });
+
+    if (Array.isArray(list)) await autoCloseFullCampaigns(list, countMap);
+
+    const active = Array.isArray(list) ? list.filter(c => c.status === 'active') : [];
+
+    // 가장 빠른 일정 기준 오름차순 정렬
+    active.sort((a, b) => {
+      const getFirstDate = c => {
+        try {
+          const s = JSON.parse(c.schedules || '[]');
+          if (!s.length) return 99999999;
+          const m = s[0].match(/(\d+)\/(\d+)/);
+          if (!m) return 99999999;
+          return parseInt(m[1]) * 100 + parseInt(m[2]);
+        } catch(e) { return 99999999; }
+      };
+      return getFirstDate(a) - getFirstDate(b);
+    });
+    const grid = document.getElementById('campaign-grid');
+    document.getElementById('list-count').textContent = active.length + '개';
+
+    if (!active.length) {
+      grid.innerHTML = `<div class="empty-state"><div class="e-icon">🌸</div><p>현재 모집 중인 체험단이 없어요<br>조금만 기다려주세요!</p></div>`;
+      return;
+    }
+
+    grid.innerHTML = active.map(c => {
+      const cnt = countMap[c.id]||0;
+      const full = cnt >= c.max_slots;
+      let schedules=[]; try { schedules=JSON.parse(c.schedules||'[]'); } catch(e){}
+      const hasImg = c.image_url && c.image_url.startsWith('data:');
+      const imgEl = hasImg ? `<img src="${c.image_url}" alt="">` : `🏪`;
+      const statusBadge = full
+        ? `<span class="badge badge-full">모집 완료</span>`
+        : `<span class="badge badge-recruit">동행 모집중</span>`;
+      let schedHtml = schedules.length
+        ? `<div class="card-schedules">${schedules.slice(0,3).map(s=>`<div class="card-schedule-item"><span class="card-schedule-dot"></span><span>${escHtml(s)}</span></div>`).join('')}${schedules.length>3?`<div class="card-schedule-item" style="color:var(--muted)">외 ${schedules.length-3}개 일정</div>`:''}</div>`
+        : `<div class="card-no-schedule">일정 미정</div>`;
+      return `<div class="campaign-card" onclick="openDetail('${c.id}')">
+        <div class="campaign-card-img">${imgEl}</div>
+        <div class="campaign-card-body">
+          <div class="campaign-card-top">
+            <span class="campaign-card-name">${escHtml(c.store_name||'-')}</span>
+            <span class="campaign-card-loc">${escHtml(c.location||'')}</span>
+          </div>
+          ${schedHtml}
+          <div class="campaign-card-footer">
+            <span class="badge badge-blog">Blog</span>
+            <span class="badge badge-type">${escHtml(c.campaign_type||'방문형')}</span>
+            ${statusBadge}
+            <span class="slot-mini">${cnt}/${c.max_slots}명</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('campaign-grid').innerHTML = '<div class="empty-state"><p>불러오기 실패. 새로고침 해주세요.</p></div>';
+  }
+}
+
+async function openDetail(id) {
+  try {
+    const [campRes, appRes] = await Promise.all([
+      fetch(SB_URL+'/rest/v1/campaigns?id=eq.'+id+'&select=*', { headers: sbHeaders() }),
+      fetch(SB_URL+'/rest/v1/applications?campaign_id=eq.'+id+'&select=*&order=created_at.asc', { headers: sbHeaders() })
+    ]);
+    const campData = await campRes.json();
+    const apps = await appRes.json();
+    if (!campData||!campData[0]) return;
+    currentCampaign = campData[0];
+    const c = currentCampaign;
+    const appCount = Array.isArray(apps) ? apps.length : 0;
+    const full = appCount >= c.max_slots || c.status === 'closed';
+    let schedules=[]; try { schedules=JSON.parse(c.schedules||'[]'); } catch(e){}
+
+    document.getElementById('detail-header-title').textContent = c.store_name||'';
+    if (c.image_url && c.image_url.startsWith('data:')) {
+      document.getElementById('detail-img').src = c.image_url;
+      document.getElementById('detail-img').style.display = 'block';
+      document.getElementById('detail-img-placeholder').style.display = 'none';
+    } else {
+      document.getElementById('detail-img').style.display = 'none';
+      document.getElementById('detail-img-placeholder').style.display = 'flex';
+    }
+    document.getElementById('d-name').textContent = c.store_name||'-';
+    document.getElementById('d-sub').textContent = (c.campaign_type||'방문형')+' · '+(c.location||'');
+    document.getElementById('d-location').textContent = c.location||'-';
+    document.getElementById('d-benefit').textContent = c.benefit||'-';
+    document.getElementById('d-slots').textContent = appCount+' / '+c.max_slots+'명';
+    document.getElementById('d-type').textContent = c.campaign_type||'방문형';
+    document.getElementById('d-type2').textContent = c.campaign_type||'방문형';
+    document.getElementById('d-slot-fill').style.width = Math.min(Math.round(appCount/c.max_slots*100),100)+'%';
+    document.getElementById('d-slot-count').textContent = appCount+'/'+c.max_slots+'명';
+
+    const statusEl = document.getElementById('d-status');
+    if (c.status==='closed') { statusEl.textContent='마감'; statusEl.className='badge badge-closed'; }
+    else if (full) { statusEl.textContent='모집 완료'; statusEl.className='badge badge-full'; }
+    else { statusEl.textContent='동행 모집중'; statusEl.className='badge badge-recruit'; }
+
+    const schedCard = document.getElementById('schedules-card');
+    if (schedules.length) {
+      schedCard.style.display='block';
+      document.getElementById('d-schedules').innerHTML = schedules.map(s=>`<span class="schedule-chip">🌸 ${escHtml(s)}</span>`).join('');
+    } else { schedCard.style.display='none'; }
+
+    const applySection = document.getElementById('apply-section');
+    if (full) {
+      applySection.innerHTML = `<div class="closed-banner"><strong>🔒 동행 모집이 마감되었어요</strong>인원이 가득 찼거나 일정이 종료되었습니다</div>`;
+    } else {
+      applySection.innerHTML = `<div class="apply-card"><div class="apply-card-body">
+        <div class="section-title">동행 신청</div>
+        <div class="input-row">
+          <input class="input-name" type="text" id="app-name" placeholder="닉네임" maxlength="10">
+          <input class="input-msg" type="text" id="app-msg" placeholder="한마디 (예: 플레이스 저장 완료!)" maxlength="60">
+        </div>
+        ${schedules.length ? `<div class="schedule-checkboxes"><div class="schedule-check-title">🌸 가능한 날짜를 선택해주세요</div><div class="checkbox-group" id="app-checkbox-group">${schedules.map(s=>`<label class="checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="${escHtml(s)}"><span>${escHtml(s)}</span></label>`).join('')}</div></div>` : ''}
+        <button class="btn-apply" id="app-btn" onclick="submitApplication()">동행 신청하기 🌸</button>
+      </div></div>`;
+    }
+
+    renderApplications(Array.isArray(apps)?apps:[]);
+    document.getElementById('list-page').style.display='none';
+    document.getElementById('detail-page').classList.add('show');
+    window.scrollTo(0,0);
+  } catch(e) { showToast('불러오기 실패'); }
+}
+
+function goBack() {
+  document.getElementById('detail-page').classList.remove('show');
+  document.getElementById('list-page').style.display='block';
+  currentCampaign=null; loadCampaigns();
+}
+function toggleCheck(label) { label.classList.toggle('checked'); label.querySelector('input').checked=label.classList.contains('checked'); }
+function getChecked() { return [...document.querySelectorAll('#app-checkbox-group input:checked')].map(c=>c.value); }
+
+async function submitApplication() {
+  const name = document.getElementById('app-name')?.value.trim();
+  const msg = document.getElementById('app-msg')?.value.trim();
+  if (!name||!msg) { showToast('닉네임과 한마디를 입력해주세요'); return; }
+  if (!currentCampaign) return;
+  const btn = document.getElementById('app-btn');
+  btn.disabled=true; btn.innerHTML='<span class="btn-small-spin"></span> 신청 중...';
+  try {
+    const chk = await fetch(SB_URL+'/rest/v1/applications?campaign_id=eq.'+currentCampaign.id+'&select=id', { headers: sbHeaders() });
+    const ex = await chk.json();
+    if (ex.length >= currentCampaign.max_slots) {
+      // 자동 마감 처리
+      await fetch(SB_URL+'/rest/v1/campaigns?id=eq.'+currentCampaign.id, { method:'PATCH', headers:sbHeaders(), body:JSON.stringify({status:'closed'}) });
+      showToast('모집이 완료되었어요!'); await openDetail(currentCampaign.id); return;
+    }
+    const res = await fetch(SB_URL+'/rest/v1/applications', {
+      method:'POST', headers:{...sbHeaders(),'Prefer':'return=representation'},
+      body: JSON.stringify({ campaign_id: currentCampaign.id, name, message: msg, schedules: JSON.stringify(getChecked()) })
+    });
+    if (res.ok) {
+      showToast('동행 신청 완료! 🌸');
+      await openDetail(currentCampaign.id);
+    } else { showToast('오류가 발생했어요.'); btn.disabled=false; btn.textContent='동행 신청하기 🌸'; }
+  } catch(e) { showToast('네트워크 오류'); btn.disabled=false; btn.textContent='동행 신청하기 🌸'; }
+}
+
+function renderApplications(list) {
+  const el=document.getElementById('app-list');
+  document.getElementById('app-count').textContent='('+list.length+'명)';
+  if (!list.length) { el.innerHTML='<div class="comment-empty">아직 신청자가 없어요 🌸<br>첫 번째 동행자가 되어보세요!</div>'; return; }
+  el.innerHTML=list.map((c,i)=>{
+    const color=avatarColors[i%avatarColors.length];
+    const initial=(c.name||'?')[0].toUpperCase();
+    const time=new Date(c.created_at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    let tags=''; try { tags=JSON.parse(c.schedules||'[]').map(s=>`<span class="comment-schedule-tag">🌸 ${escHtml(s)}</span>`).join(''); } catch(e){}
+    return `<div class="comment-item"><div class="avatar" style="background:${color}">${initial}</div><div class="comment-content"><div class="comment-header"><span class="comment-name">${escHtml(c.name)}</span><span class="comment-time">${time}</span></div><div class="comment-text">${escHtml(c.message)}</div>${tags?'<div class="comment-schedules">'+tags+'</div>':''}</div></div>`;
+  }).join('');
+}
+
+function showToast(msg) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+loadCampaigns();
+</script>
+</body>
+</html>
