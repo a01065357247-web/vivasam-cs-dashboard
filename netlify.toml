@@ -1,1 +1,4 @@
-
+[[redirects]]
+  from = "/"
+  to = "/samindex.html"
+  status = 200
